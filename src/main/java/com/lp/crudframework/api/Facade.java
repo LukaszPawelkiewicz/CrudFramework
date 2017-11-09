@@ -2,6 +2,6 @@ package com.lp.crudframework.api;
 
 public interface Facade {
 
-    void generateClasses();
+    void generateClasses(String filePath);
 
 }
