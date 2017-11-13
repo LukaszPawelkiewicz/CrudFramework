@@ -1,22 +1,18 @@
-<class>
-    <student rollno = "393">
-        <firstname>dinkar</firstname>
-        <lastname>kad</lastname>
-        <nickname>dinkar</nickname>
-        <marks>85</marks>
-    </student>
+<data>
+    <table name="user">
+        <field name="id" id="true"/>
+        <field name="username" length="20"/>
+        <field name="password" length="20" password="true"/>
+        <field name="email" length="20" email="true"/>
 
-    <student rollno = "493">
-        <firstname>Vaneet</firstname>
-        <lastname>Gupta</lastname>
-        <nickname>vinni</nickname>
-        <marks>95</marks>
-    </student>
-
-    <student rollno = "593">
-        <firstname>jasvir</firstname>
-        <lastname>singn</lastname>
-        <nickname>jazz</nickname>
-        <marks>90</marks>
-    </student>
-</class>
+        <queries>
+            <query type="create"/>
+            <query type="edit"/>
+            <query type="delete"/>
+            <query type="find">
+                <find-by-field name="username"/>
+                <find-by-field name="password"/>
+            </query>
+        </queries>
+    </table>
+</data>

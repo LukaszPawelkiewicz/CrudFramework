@@ -2,11 +2,13 @@ package com.lp.crudframework.xml;
 
 public class XMLMapping {
 
+    public static final String DATA = "data";
     public static final String TABLE = "table";
     public static final String FIELD = "field";
     public static final String LENGTH = "length";
     public static final String ID = "id";
     public static final String QUERIES = "queries";
+    public static final String QUERY = "query";
     public static final String QUERY_TYPE = "type";
     public static final String CREATE = "create";
     public static final String EDIT = "edit";
@@ -20,22 +22,24 @@ public class XMLMapping {
     public static final String EMAIL = "email";
 
     /*
-     * <table name="user">
-     *     <field name="id" id="true" />
-     *     <field name="username" length="20" />
-     *     <field name="password" length="20" password="true" />
-     *     <field name="email" length="20" email="true" />
+     *  <data>
+     *      <table name="user">
+     *          <field name="id" id="true" />
+     *          <field name="username" length="20" />
+     *          <field name="password" length="20" password="true" />
+     *          <field name="email" length="20" email="true" />
      *
-     *     <queries>
-     *         <query type="create" />
-     *         <query type="edit" />
-     *         <query type="delete" />
-     *         <query type="find">
-     *             <find-by-field name="username" />
-     *             <find-by-field name="password" />
-     *         </query>
-     *     </queries>
-     * </table>
+     *              <queries>
+     *                  <query type="create" />
+     *                  <query type="edit" />
+     *                  <query type="delete" />
+     *                  <query type="find">
+     *                      <find-by-field name="username" />
+     *                      <find-by-field name="password" />
+     *                  </query>
+     *          </queries>
+     *      </table>
+     *  </data>
      */
 
 }
