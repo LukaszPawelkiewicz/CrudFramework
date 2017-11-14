@@ -37,9 +37,13 @@ class JDomParserTest {
             System.out.println(map.get(JDomParser.QUERY).get(0).getAttribute("type"));
             System.out.println(map.get(JDomParser.QUERY).get(1).getAttribute("type"));
             System.out.println(map.get(JDomParser.QUERY).get(2).getAttribute("type"));
+
+            //todo smth wrong here
+            System.out.println(map.get(JDomParser.FIND_FIELDS).get(0).getAttribute("name"));
+            System.out.println(map.get(JDomParser.FIND_FIELDS).get(1).getAttribute("name"));
         } catch (JDOMException | IOException e) {
             e.printStackTrace();
         }
-    }
+}
 
 }

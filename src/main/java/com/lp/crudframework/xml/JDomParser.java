@@ -43,7 +43,7 @@ class JDomParser {
         return null;
     }
 
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "MismatchedQueryAndUpdateOfCollection"})
     Map<String, List<Element>> mapXML(String filePath) throws JDOMException, IOException {
         Map map = new HashMap<>();
         File file = new File(filePath);
@@ -58,20 +58,27 @@ class JDomParser {
         List<Element> fields = new ArrayList<>();
         List<Element> queries = new ArrayList<>();
         tables.forEach(table -> {
-            fields.add(table.getChild(XMLMapping.FIELD));
-            queries.add(table.getChild(XMLMapping.QUERIES));
+            table.getChildren().forEach(element -> {
+                if (Objects.equals(element.getName(), XMLMapping.FIELD)) fields.add(element);
+                if (Objects.equals(element.getName(), XMLMapping.QUERIES)) queries.add(element);
+            });
         });
 
         List<Element> childQueries = new ArrayList<>();
         queries.forEach(query -> {
-            childQueries.add(query.getChild(XMLMapping.QUERY));
+            query.getChildren().forEach(element -> {
+                if (Objects.equals(element.getName(), XMLMapping.QUERY)) childQueries.add(element);
+            });
         });
 
         List<Element> findQueries = new ArrayList<>();
         childQueries.forEach(childQuery -> {
-            if (Objects.equals(childQuery.getAttribute(XMLMapping.QUERY_TYPE).getName(), XMLMapping.FIND)) {
-                Element findQuery = childQuery.getChild(XMLMapping.FIND_FIELD);
-            }
+            childQuery.getChildren().forEach(element -> {
+                if (Objects.equals(childQuery.getAttribute(XMLMapping.QUERY_TYPE).getName(), XMLMapping.FIND)
+                        && Objects.equals(element.getName(), XMLMapping.FIND_FIELD)) {
+                    findQueries.add(element);
+                }
+            });
         });
 
         map.put(ROOT, rootList);
