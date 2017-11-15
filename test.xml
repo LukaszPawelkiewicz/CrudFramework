@@ -1,17 +1,17 @@
 <data>
     <table name="user">
-        <field name="id" id="true"/>
-        <field name="username" length="20"/>
-        <field name="password" length="20" password="true"/>
-        <field name="email" length="20" email="true"/>
+        <field id="true">id</field>
+        <field length="20">username</field>
+        <field length="20" password="true">password</field>
+        <field length="20" email="true">email</field>
 
         <queries>
             <query type="create"/>
             <query type="edit"/>
             <query type="delete"/>
             <query type="find">
-                <find-by-field name="username"/>
-                <find-by-field name="password"/>
+                <find-by-field>username</find-by-field>
+                <find-by-field>password</find-by-field>
             </query>
         </queries>
     </table>

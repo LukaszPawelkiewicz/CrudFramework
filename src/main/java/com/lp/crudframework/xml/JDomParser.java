@@ -74,10 +74,7 @@ class JDomParser {
         List<Element> findQueries = new ArrayList<>();
         childQueries.forEach(childQuery -> {
             childQuery.getChildren().forEach(element -> {
-                if (Objects.equals(childQuery.getAttribute(XMLMapping.QUERY_TYPE).getName(), XMLMapping.FIND)
-                        && Objects.equals(element.getName(), XMLMapping.FIND_FIELD)) {
-                    findQueries.add(element);
-                }
+                if (Objects.equals(element.getName(), XMLMapping.FIND_FIELD)) findQueries.add(element);
             });
         });
 
